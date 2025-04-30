@@ -24,23 +24,7 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/user-return-books.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/return-modal.css?v=<?php echo time(); ?>">
-    <style>
-        /* Keep only essential styles that are specific to this page */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            width: 100%;
-            min-height: 100vh;
-            background: #FEF3E8;
-            position: relative;
-            overflow-x: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/user-return-books-2.css?v=<?php echo time();?>">
 </head>
 
 <body>

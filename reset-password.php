@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/reset-password-new.css">
+    <link rel="stylesheet" href="assets/css/reset-password.css">
 </head>
 <body>
     <div class="container">
@@ -129,26 +130,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     });
     </script>
-
-    <style>
-    .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.95);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        text-align: center;
-        border: 2px solid #B07154;
-    }
-    .popup-content {
-        color: #B07154;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-    }
-    </style>
 </body>
 </html>

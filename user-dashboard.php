@@ -80,6 +80,7 @@ try {
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/user-dashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/user-dashboard-2.css?v=<?php echo time();?>">
     <link rel="stylesheet" href="assets/css/settings-modal.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script>
@@ -109,35 +110,6 @@ try {
         // Initial call to display time immediately
         document.addEventListener('DOMContentLoaded', updateTime);
     </script>
-    <style>
-        /* Keep only essential styles that are specific to this page */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        *::-webkit-scrollbar {
-            display: none;
-        }
-
-        body {
-            width: 100%;
-            min-height: 100vh;
-            background: #FEF3E8;
-            position: relative;
-            overflow-x: hidden;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        body::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>

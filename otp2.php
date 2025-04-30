@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>OTP Verification</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/otp.css">
+    <link rel="stylesheet" href="assets/css/otp2.css">
 </head>
 <body>
     <div class="container">
@@ -70,33 +71,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-
-    <style>
-    .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.95);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        text-align: center;
-        border: 2px solid #B07154;
-    }
-    .popup-content {
-        color: #B07154;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-    }
-    .message {
-        position: absolute;
-        left: 102px;
-        top: 290px;
-        color: red;
-        font-size: 13px;
-    }
-    </style>
 </body>
 </html>

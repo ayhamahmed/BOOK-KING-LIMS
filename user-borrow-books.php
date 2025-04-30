@@ -64,34 +64,7 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
     <title>User Borrow Books</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/user-borrow-books.css?v=<?php echo time(); ?>">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-        }
-
-        *::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-
-        body {
-            width: 100%;
-            min-height: 100vh;
-            background: #FEF3E8;
-            position: relative;
-            overflow-x: hidden;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-        }
-
-        body::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/user-borrow-books-2.css.css?v=<?php echo time();?>">
 </head>
 
 <body>
