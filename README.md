@@ -30,8 +30,8 @@ A comprehensive Library Information Management System designed to streamline lib
    git clone https://github.com/yourusername/library-management-system.git
    cd library-management-system
 
-##📝 License
+## 📝 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-##🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any changes.
