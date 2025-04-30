@@ -20,9 +20,9 @@ A comprehensive Library Information Management System designed to streamline lib
 
 ## 🏗️ Tech Stack
 
-*PHP*
-*HTML, CSS, Javascript*
-*MySQL*
+- **PHP**
+- **HTML, CSS, Javascript**
+- **MySQL**
 
 ## 📦 Installation
 
