@@ -31,7 +31,7 @@ A comprehensive Library Information Management System designed to streamline lib
    cd library-management-system
 
 ## 📝 License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License.
 
 ## 🤝 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any changes.
