@@ -29,8 +29,7 @@ A comprehensive Library Information Management System designed to streamline lib
 1. Clone the repository:
 
    ```bash
-   [git clone https://github.com/yourusername/library-management-system.git
-   cd library-management-system](https://github.com/ayhamahmed/BOOK-KING-LIMS.git)
+   https://github.com/ayhamahmed/BOOK-KING-LIMS.git
 
 ## 📝 License
 This project is licensed under the MIT License.
