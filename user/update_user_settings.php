@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'database/db_connection.php';
+require '../database/db_connection.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 // Handle profile picture upload
 if (isset($_FILES['profilePicture'])) {
     $file = $_FILES['profilePicture'];
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    $allowedTypes = ['../image/jpeg', '../image/png', '../image/gif'];
     $maxSize = 5 * 1024 * 1024; // 5MB
 
     // Validate file
@@ -26,7 +26,7 @@ if (isset($_FILES['profilePicture'])) {
     // Generate unique filename
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $filename = uniqid() . '.' . $extension;
-    $uploadPath = 'uploads/profile_pictures/' . $filename;
+    $uploadPath = '../uploads/profile_pictures/' . $filename;
 
     // Move uploaded file
     if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
@@ -58,7 +58,7 @@ if (isset($_POST['remove_picture'])) {
         
         // Delete file if it exists
         if ($currentPicture && $currentPicture !== 'default.jpg') {
-            $filepath = 'uploads/profile_pictures/' . $currentPicture;
+            $filepath = '../uploads/profile_pictures/' . $currentPicture;
             if (file_exists($filepath)) {
                 unlink($filepath);
             }
@@ -105,7 +105,3 @@ if (isset($_POST['currentPassword']) && isset($_POST['newPassword'])) {
     }
     exit;
 }
-
-// Redirect back to settings page if no action was taken
-// header('Location: user-settings.php');
-// exit();

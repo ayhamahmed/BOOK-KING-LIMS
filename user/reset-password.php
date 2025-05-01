@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'database/db_connection.php';
+require '../database/db_connection.php';
 
 if (!isset($_SESSION['reset_user_id'])) {
     header('Location: forgot-password.php');
@@ -44,13 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Reset Password</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/reset-password-new.css">
-    <link rel="stylesheet" href="assets/css/reset-password.css">
+    <link rel="stylesheet" href="../assets/css/reset-password-new.css">
+    <link rel="stylesheet" href="../assets/css/reset-password.css">
 </head>
 <body>
     <div class="container">
         <div class="left-section">
-            <img src="images/logo.png" alt="Main Logo" class="main-logo">
+            <img src="../images/logo.png" alt="Main Logo" class="main-logo">
             <p class="tagline">"Your premier digital library for borrowing and reading books"</p>
         </div>
         

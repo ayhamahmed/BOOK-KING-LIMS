@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'helpers/activity_logger.php';
+require_once '../helpers/activity_logger.php';
 
 // Include the database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 function saveBorrowedBooks($pdo, $userId, $books, $dueDate)
 {
@@ -52,7 +52,7 @@ function saveBorrowedBooks($pdo, $userId, $books, $dueDate)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borrow Book Confirmation</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/user-borrow-confirm.css">
+    <link rel="stylesheet" href="../assets/css/user-borrow-confirm.css">
 </head>
 
 <body>
@@ -108,7 +108,7 @@ function saveBorrowedBooks($pdo, $userId, $books, $dueDate)
                 <div>${book.language}</div>
                 <div>
                     <div class="action-icon" onclick="removeBook(${book.id})">
-                        <img src="images/btn Delete.png" alt="Delete">
+                        <img src="../images/btn Delete.png" alt="Delete">
                     </div>
                 </div>
             `;

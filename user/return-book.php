@@ -15,8 +15,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 try {
     // Include files after headers are set
-    require_once 'helpers/activity_logger.php';
-    $pdo = require 'database/db_connection.php';
+    require_once '../helpers/activity_logger.php';
+    $pdo = require '../database/db_connection.php';
 
     // Validate input parameters
     if (!isset($_POST['borrow_id']) || !isset($_POST['return_date'])) {

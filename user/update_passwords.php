@@ -1,9 +1,7 @@
 <?php
-// This script updates all existing plain text passwords to hashed passwords
-// Delete this file after running it once!
 
 // Include the database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 echo "<h1>Updating passwords to secure hashes</h1>";
 
@@ -14,7 +12,6 @@ try {
     
     $count = 0;
     foreach ($users as $user) {
-        // Skip passwords that already look like hashes (long strings)
         if (strlen($user['password']) < 60) {
             // Hash the plaintext password
             $hashedPassword = password_hash($user['password'], PASSWORD_DEFAULT);

@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 try {
     $currentPassword = $_POST['currentPassword'] ?? '';

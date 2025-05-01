@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'database/db_connection.php';
+require '../database/db_connection.php';
 
 // Debug: Log the start of the process
 error_log("Login process started");
@@ -42,12 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         error_log("User not found");
         $_SESSION['error'] = "Invalid username or password";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }
 } else {
     error_log("Not a POST request");
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 ?> 

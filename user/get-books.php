@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Include the database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 // Get parameters
 $type = $_GET['type'] ?? 'borrowed';

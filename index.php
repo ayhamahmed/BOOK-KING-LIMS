@@ -4,7 +4,7 @@ ob_start();
 session_start();
 
 // Include the database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require './database/db_connection.php';
 
 // Check for error messages
 $error = $_SESSION['error'] ?? '';
@@ -12,7 +12,7 @@ unset($_SESSION['error']);
 
 // Debug login submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    error_log('POST request received on index.php');
+    error_log('POST request received on ./index.php');
     error_log('POST data: ' . print_r($_POST, true));
 }
 
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
                     $_SESSION['verified'] = true;
 
                     ob_end_clean();
-                    header('Location: user-dashboard.php');
+                    header('Location: ./user/user-dashboard.php');
                     exit();
                 }
             } else {
@@ -99,7 +99,7 @@ $message = '';
 
 // Check if user is already verified
 if (isset($_SESSION['verified']) && $_SESSION['verified'] === true) {
-    header('Location: user-dashboard.php');
+    header('Location: ./user/user-dashboard.php');
     exit();
 }
 

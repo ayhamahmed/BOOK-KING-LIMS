@@ -2,7 +2,7 @@
 session_start();
 
 // Include the database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 // Function to get random cover URL
 function getRandomCover($title, $author) {
@@ -63,26 +63,26 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Borrow Books</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/user-borrow-books.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="assets/css/user-borrow-books-2.css.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="../assets/css/user-borrow-books.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/user-borrow-books-2.css.css?v=<?php echo time();?>">
 </head>
 
 <body>
     <div class="sidebar">
         <div class="logo-container">
-            <img src="images/logo.png" alt="Book King Logo">
+            <img src="../images/logo.png" alt="Book King Logo">
         </div>
         <div class="sidebar-item home" onclick="window.location.href='user-dashboard.php'">
-            <img src="images/element-2 2.svg" alt="Home" class="icon-image">
+            <img src="../images/element-2 2.svg" alt="Home" class="icon-image">
         </div>
         <div class="sidebar-item list" onclick="window.location.href='user-return-books.php'">
-            <img src="images/Vector.svg" alt="List" class="icon-image">
+            <img src="../images/Vector.svg" alt="List" class="icon-image">
         </div>
         <div class="sidebar-item book" onclick="window.location.href='user-borrow-books.php'">
-            <img src="images/book.png" alt="Book" class="icon-image">
+            <img src="../images/book.png" alt="Book" class="icon-image">
         </div>
         <div class="sidebar-item logout" onclick="handleLogout()">
-            <img src="images/logout 3.png" alt="Logout" class="icon-image">
+            <img src="../images/logout 3.png" alt="Logout" class="icon-image">
         </div>
     </div>
 
@@ -92,8 +92,8 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
                 <div class="user-icon">
                     <?php
                     $profilePicture = isset($_SESSION['profile_picture']) && $_SESSION['profile_picture'] !== 'default.jpg' 
-                        ? 'uploads/profile_pictures/' . $_SESSION['profile_picture'] 
-                        : 'images/user.png';
+                        ? '../uploads/profile_pictures/' . $_SESSION['profile_picture'] 
+                        : '../images/user.png';
                     ?>
                     <img src="<?php echo htmlspecialchars($profilePicture); ?>" alt="User" class="profile-picture">
                 </div>

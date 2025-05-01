@@ -10,8 +10,8 @@ if (isset($_GET['back']) && $_GET['back'] == '1') {
     exit();
 }
 
-require 'database/db_connection.php';
-require_once 'helpers/activity_logger.php';
+require '../database/db_connection.php';
+require_once '../helpers/activity_logger.php';
 
 $message = '';
 $messageClass = '';
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     unset($_SESSION['last_name']);
                     
                     // Redirect to login page
-                    header('Location: index.php');
+                    header('Location: ../index.php');
                     exit();
                 } else {
                     $message = 'Invalid OTP. Please try again.';

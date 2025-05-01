@@ -16,21 +16,38 @@ $adminLastName = $_SESSION['admin_last_name'] ?? '';
 $pdo = require '../database/db_connection.php';
 
 // Function to get random cover URL
-function getRandomCover($title, $author) {
+function getRandomCover($title, $author)
+{
     // List of background colors (pastel colors)
     $colors = [
-        'F8B195', 'F67280', 'C06C84', '6C5B7B', '355C7D', // warm to cool
-        'A8E6CF', 'DCEDC1', 'FFD3B6', 'FFAAA5', 'FF8B94', // nature
-        'B5EAD7', 'C7CEEA', 'E2F0CB', 'FFDAC1', 'FFB7B2', // soft
-        'E7D3EA', 'DCD3FF', 'B5D8EB', 'BBE1FA', 'D6E5FA'  // pastel
+        'F8B195',
+        'F67280',
+        'C06C84',
+        '6C5B7B',
+        '355C7D', // warm to cool
+        'A8E6CF',
+        'DCEDC1',
+        'FFD3B6',
+        'FFAAA5',
+        'FF8B94', // nature
+        'B5EAD7',
+        'C7CEEA',
+        'E2F0CB',
+        'FFDAC1',
+        'FFB7B2', // soft
+        'E7D3EA',
+        'DCD3FF',
+        'B5D8EB',
+        'BBE1FA',
+        'D6E5FA'  // pastel
     ];
-    
+
     // Get random color
     $bgColor = $colors[array_rand($colors)];
-    
+
     // Format title and author for URL
     $text = urlencode($title . "\nby " . $author);
-    
+
     return "https://placehold.co/400x600/${bgColor}/333333/png?text=${text}";
 }
 
@@ -142,14 +159,14 @@ try {
             <div class="datetime-display">
                 <div class="time-section">
                     <svg class="time-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="#B07154" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.59-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
-                        <path fill="#B07154" d="M13 7h-2v6l4.5 2.7.7-1.2-3.2-1.9z"/>
+                        <path fill="#B07154" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.59-8 8-8 8 3.589 8 8-3.589 8-8 8z" />
+                        <path fill="#B07154" d="M13 7h-2v6l4.5 2.7.7-1.2-3.2-1.9z" />
                     </svg>
                     <span class="time-display">--:--:-- --</span>
                 </div>
                 <div class="date-section">
                     <svg class="date-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="#B07154" d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7h16v7zm0-9H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1v3z"/>
+                        <path fill="#B07154" d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7h16v7zm0-9H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1v3z" />
                     </svg>
                     <span class="date-display">--- --, ----</span>
                 </div>
@@ -191,9 +208,9 @@ try {
                         <?php foreach ($books as $book): ?>
                             <tr>
                                 <td>
-                                    <img src="<?= htmlspecialchars($book['cover_image_url'] ?? '../images/default-book-cover.jpg') ?>" 
-                                         alt="<?= htmlspecialchars($book['title']) ?>" 
-                                         class="book-cover">
+                                    <img src="<?= htmlspecialchars($book['cover_image_url'] ?? '../images/default-book-cover.jpg') ?>"
+                                        alt="<?= htmlspecialchars($book['title']) ?>"
+                                        class="book-cover">
                                 </td>
                                 <td class="book-title"><?= htmlspecialchars($book['title']) ?></td>
                                 <td><?= htmlspecialchars($book['author']) ?></td>
@@ -221,9 +238,9 @@ try {
                 <?php foreach ($books as $book): ?>
                     <div class="mobile-card">
                         <div class="mobile-card-header">
-                            <img src="<?= htmlspecialchars($book['cover_image_url'] ?? '../images/default-book-cover.jpg') ?>" 
-                                 alt="<?= htmlspecialchars($book['title']) ?>" 
-                                 class="book-cover">
+                            <img src="<?= htmlspecialchars($book['cover_image_url'] ?? '../images/default-book-cover.jpg') ?>"
+                                alt="<?= htmlspecialchars($book['title']) ?>"
+                                class="book-cover">
                             <div class="mobile-card-info">
                                 <div class="book-title"><?= htmlspecialchars($book['title']) ?></div>
                                 <div><?= htmlspecialchars($book['author']) ?></div>
@@ -235,12 +252,12 @@ try {
                             </div>
                         </div>
                         <div class="mobile-card-actions">
-                            <button class="action-btn edit-btn" 
-                                    onclick="editBook(<?= $book['book_id'] ?>)">
+                            <button class="action-btn edit-btn"
+                                onclick="editBook(<?= $book['book_id'] ?>)">
                                 Edit
                             </button>
-                            <button class="action-btn delete-btn" 
-                                    onclick="deleteBook(<?= $book['book_id'] ?>)">
+                            <button class="action-btn delete-btn"
+                                onclick="deleteBook(<?= $book['book_id'] ?>)">
                                 Delete
                             </button>
                         </div>
@@ -302,259 +319,7 @@ try {
     </div>
 
     <div id="notificationContainer"></div>
-
-    <script>
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const sidebar = document.querySelector('.sidebar');
-            const content = document.querySelector('.content');
-            const body = document.body;
-
-            // Create overlay element
-            const overlay = document.createElement('div');
-            overlay.className = 'sidebar-overlay';
-            body.appendChild(overlay);
-
-            function toggleMenu() {
-                mobileMenuBtn.classList.toggle('active');
-                sidebar.classList.toggle('active');
-                content.classList.toggle('sidebar-active');
-                overlay.classList.toggle('active');
-                body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-            }
-
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking a nav item on mobile
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            // Handle resize events
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    if (window.innerWidth > 768) {
-                        mobileMenuBtn.classList.remove('active');
-                        sidebar.classList.remove('active');
-                        content.classList.remove('sidebar-active');
-                        overlay.classList.remove('active');
-                        body.style.overflow = '';
-                    }
-                }, 250);
-            });
-
-            // Search and filter functionality
-            const searchInput = document.getElementById('searchInput');
-            const statusFilter = document.getElementById('statusFilter');
-            const bookElements = document.querySelectorAll('.books-table tr:not(:first-child), .mobile-card');
-
-            function filterBooks() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const statusValue = statusFilter.value.toLowerCase();
-
-                bookElements.forEach(element => {
-                    const isTableRow = element.tagName === 'TR';
-                    const title = isTableRow 
-                        ? element.querySelector('.book-title').textContent.toLowerCase()
-                        : element.querySelector('.mobile-card-info .book-title').textContent.toLowerCase();
-                    const status = isTableRow
-                        ? element.querySelector('.status-badge').textContent.toLowerCase()
-                        : element.querySelector('.status-badge').textContent.toLowerCase();
-
-                    const matchesSearch = title.includes(searchTerm);
-                    const matchesStatus = !statusValue || status === statusValue;
-
-                    element.style.display = 
-                        matchesSearch && matchesStatus ? '' : 'none';
-                });
-            }
-
-            searchInput.addEventListener('input', filterBooks);
-            statusFilter.addEventListener('change', filterBooks);
-        });
-
-        let currentBookId = null;
-
-        function editBook(bookId) {
-            currentBookId = bookId;
-            // Fetch book details
-            fetch(`get_book.php?id=${bookId}`)
-                .then(response => response.json())
-                .then(book => {
-                    document.getElementById('edit_book_id').value = book.book_id;
-                    document.getElementById('edit_title').value = book.title;
-                    document.getElementById('edit_author').value = book.author;
-                    document.getElementById('edit_type').value = book.type;
-                    document.getElementById('edit_language').value = book.language;
-                    document.getElementById('editModal').style.display = 'block';
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error fetching book details');
-                });
-        }
-
-        function closeModal() {
-            document.getElementById('editModal').style.display = 'none';
-            currentBookId = null;
-        }
-
-        function deleteBook(bookId) {
-            currentBookId = bookId;
-            document.getElementById('deleteModal').style.display = 'block';
-        }
-
-        function closeDeleteModal() {
-            document.getElementById('deleteModal').style.display = 'none';
-            currentBookId = null;
-        }
-
-        function confirmDelete() {
-            if (!currentBookId) return;
-
-            const formData = new FormData();
-            formData.append('book_id', currentBookId);
-
-            fetch('delete_book.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showNotification('success', 'Book deleted successfully', '📚');
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1500);
-                } else {
-                    showNotification('error', data.message || 'Error deleting book', '❌');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showNotification('error', 'Error deleting book', '❌');
-            })
-            .finally(() => {
-                closeDeleteModal();
-            });
-        }
-
-        // Handle edit form submission
-        document.getElementById('editBookForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-
-            fetch('edit_book.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showNotification('success', 'Book updated successfully', '✅');
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1500);
-                } else {
-                    showNotification('error', data.message || 'Error updating book', '❌');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showNotification('error', 'Error updating book', '❌');
-            })
-            .finally(() => {
-                closeModal();
-            });
-        });
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const editModal = document.getElementById('editModal');
-            const deleteModal = document.getElementById('deleteModal');
-            if (event.target == editModal) {
-                closeModal();
-            }
-            if (event.target == deleteModal) {
-                closeDeleteModal();
-            }
-        }
-
-        function showNotification(type, message, icon) {
-            const container = document.getElementById('notificationContainer');
-            const notification = document.createElement('div');
-            
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <div class="notification-icon">📚</div>
-                <div class="notification-text">Book deleted successfully</div>
-                <div class="notification-close">×</div>
-            `;
-            
-            container.appendChild(notification);
-            
-            // Trigger reflow for animation
-            notification.offsetHeight;
-            notification.classList.add('show');
-            
-            // Close button handler
-            notification.querySelector('.notification-close').addEventListener('click', () => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    container.removeChild(notification);
-                }, 400);
-            });
-            
-            // Auto close after 3 seconds
-            setTimeout(() => {
-                if (container.contains(notification)) {
-                    notification.classList.remove('show');
-                    setTimeout(() => {
-                        if (container.contains(notification)) {
-                            container.removeChild(notification);
-                        }
-                    }, 400);
-                }
-            }, 3000);
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update datetime display
-            function updateDateTime() {
-                const now = new Date();
-                
-                // Update time
-                const timeDisplay = document.querySelector('.time-display');
-                timeDisplay.textContent = now.toLocaleString('en-US', {
-                    hour: 'numeric',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: true
-                });
-
-                // Update date
-                const dateDisplay = document.querySelector('.date-display');
-                dateDisplay.textContent = now.toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: '2-digit',
-                    year: 'numeric'
-                });
-            }
-
-            // Update immediately and then every second
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-        });
-    </script>
+    <script src="./js/book-management.js"></script>
 </body>
 
 </html>

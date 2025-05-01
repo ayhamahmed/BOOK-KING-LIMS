@@ -3,10 +3,10 @@
 session_start();
 
 // Include the database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 // Add near the top after session_start()
-require_once 'helpers/activity_logger.php';
+require_once '../helpers/activity_logger.php';
 
 // Function to generate a random six-digit OTP
 function generateOTP($pdo, $user_id)
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/signup.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/signup.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
@@ -148,9 +148,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <!-- Left Section -->
         <div class="left-section">
-            <img src="images/logo.png" alt="Book King Logo">
+            <img src="../images/logo.png" alt="Book King Logo">
             <p class="signin-text">Already have Account? Sign In now.</p>
-            <button class="signin-btn" onclick="window.location.href='index.php'">
+            <button class="signin-btn" onclick="window.location.href='../index.php'">
                 <span class="signin-btn-text">SIGN IN</span>
             </button>
         </div>

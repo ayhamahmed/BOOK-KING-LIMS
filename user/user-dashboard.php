@@ -4,7 +4,7 @@ session_start();
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     error_log("User not logged in. Session data: " . print_r($_SESSION, true));
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 error_log("Dashboard accessed by user: " . $_SESSION['username']);
 
 // Include database connection
-$pdo = require 'database/db_connection.php';
+$pdo = require '../database/db_connection.php';
 
 // Function to get random cover URL
 function getRandomCover($title, $author) {
@@ -79,9 +79,9 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/user-dashboard.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="assets/css/user-dashboard-2.css?v=<?php echo time();?>">
-    <link rel="stylesheet" href="assets/css/settings-modal.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/user-dashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/user-dashboard-2.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="../assets/css/settings-modal.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script>
         function updateTime() {
@@ -115,19 +115,19 @@ try {
 <body>
     <div class="sidebar">
         <div class="logo-container">
-            <img src="images/logo.png" alt="Book King Logo">
+            <img src="../images/logo.png" alt="Book King Logo">
         </div>
         <div class="sidebar-item home" onclick="window.location.href='user-dashboard.php'">
-            <img src="images/element-2 2.svg" alt="Home" class="icon-image">
+            <img src="../images/element-2 2.svg" alt="Home" class="icon-image">
         </div>
         <div class="sidebar-item list" onclick="window.location.href='user-return-books.php'">
-            <img src="images/Vector.svg" alt="List" class="icon-image">
+            <img src="../images/Vector.svg" alt="List" class="icon-image">
         </div>
         <div class="sidebar-item book" onclick="window.location.href='user-borrow-books.php'">
-            <img src="images/book.png" alt="Book" class="icon-image">
+            <img src="../images/book.png" alt="Book" class="icon-image">
         </div>
         <div class="sidebar-item logout" onclick="handleLogout()">
-            <img src="images/logout 3.png" alt="Logout" class="icon-image">
+            <img src="../images/logout 3.png" alt="Logout" class="icon-image">
         </div>
     </div>
 
@@ -137,8 +137,8 @@ try {
                 <div class="user-icon" onclick="openSettingsModal()" style="cursor: pointer;">
                     <?php
                     $profilePicturePath = $profilePicture !== 'default.jpg' 
-                        ? 'uploads/profile_pictures/' . $profilePicture 
-                        : 'images/user.png';
+                        ? '../uploads/profile_pictures/' . $profilePicture 
+                        : '../images/user.png';
                     ?>
                     <img src="<?php echo htmlspecialchars($profilePicturePath); ?>" alt="User" class="profile-picture">
                 </div>
@@ -164,7 +164,7 @@ try {
                 <div id="current-date" class="current-date"></div>
             </div>
             <div class="settings-icon">
-                <img src="images/Vector.png" alt="Settings" style="cursor: pointer;" onclick="openSettingsModal()">
+                <img src="../images/Vector.png" alt="Settings" style="cursor: pointer;" onclick="openSettingsModal()">
             </div>
         </div>
 
@@ -172,7 +172,7 @@ try {
             <a href="user-return-books.php?tab=borrowed" class="card-link">
                 <div class="card">
                     <div class="card-icon">
-                        <img src="images/book-square 2.png" alt="Borrowed Books">
+                        <img src="../images/book-square 2.png" alt="Borrowed Books">
                     </div>
                     <div class="card-content">
                         <h3>Your Borrowed Books</h3>
@@ -188,7 +188,7 @@ try {
             <a href="user-return-books.php?tab=returned" class="card-link">
                 <div class="card">
                     <div class="card-icon">
-                        <img src="images/redo 1.png" alt="Returned Books">
+                        <img src="../images/redo 1.png" alt="Returned Books">
                     </div>
                     <div class="card-content">
                         <h3>Your Return History</h3>
@@ -204,7 +204,7 @@ try {
             <a href="user-borrow-books.php" class="card-link">
                 <div class="card">
                     <div class="card-icon">
-                        <img src="images/browse.png" alt="Browse Books">
+                        <img src="../images/browse.png" alt="Browse Books">
                     </div>
                     <div class="card-content">
                         <h3>Browse Available Books</h3>
@@ -376,8 +376,8 @@ try {
                         <div class="profile-picture-container" style="margin-bottom: 20px;">
                             <?php
                             $modalProfilePicture = isset($_SESSION['profile_picture']) && $_SESSION['profile_picture'] !== 'default.jpg' 
-                                ? 'uploads/profile_pictures/' . $_SESSION['profile_picture'] 
-                                : 'images/user.png';
+                                ? '../uploads/profile_pictures/' . $_SESSION['profile_picture'] 
+                                : '../images/user.png';
                             ?>
                             <div class="profile-icon">
                                 <img src="<?php echo htmlspecialchars($modalProfilePicture); ?>" alt="Profile Picture" class="profile-picture">

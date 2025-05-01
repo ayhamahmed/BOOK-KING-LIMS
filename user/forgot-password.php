@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'database/db_connection.php';
+require '../database/db_connection.php';
 require_once 'email_service.php';
 
 $message = '';
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="submit-btn-text">SEND RESET CODE</span>
                 </button>
 
-                <a href="index.php" class="back-to-login">Back to Login</a>
+                <a href="../index.php" class="back-to-login">Back to Login</a>
             </form>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once 'helpers/activity_logger.php';
-$pdo = require 'database/db_connection.php';
+require_once '../helpers/activity_logger.php';
+$pdo = require '../database/db_connection.php';
 
 // Handle form submission
 if (isset($_POST['confirm_return'])) {
@@ -75,7 +75,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Return Book Confirmation</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/user-return-confirm.css">
+    <link rel="stylesheet" href="../assets/css/user-return-confirm.css">
 </head>
 
 <body>

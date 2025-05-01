@@ -158,13 +158,13 @@ try {
             <div class="datetime-display">
                 <div class="time-section">
                     <svg class="time-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="#B07154" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.59-8 8-8 8 3.589 8 8-3.589 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        <path fill="#B07154" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.59-8 8-8 8 3.589 8 8-3.589 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
                     </svg>
                     <span class="time-display">--:--:-- --</span>
                 </div>
                 <div class="date-section">
                     <svg class="date-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="#B07154" d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7h16v7zm0-9H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1v3z"/>
+                        <path fill="#B07154" d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7h16v7zm0-9H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1v3z" />
                     </svg>
                     <span class="date-display">--- --, ----</span>
                 </div>
@@ -273,7 +273,7 @@ try {
         <div class="modal-content delete-confirm-modal">
             <div class="delete-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
-                    <path fill="#B07154" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    <path fill="#B07154" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
                 </svg>
             </div>
             <h2 class="delete-title">Delete User</h2>
@@ -285,230 +285,7 @@ try {
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update datetime display
-            function updateDateTime() {
-                const now = new Date();
-                
-                // Update time
-                const timeDisplay = document.querySelector('.time-display');
-                timeDisplay.textContent = now.toLocaleString('en-US', {
-                    hour: 'numeric',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: true
-                });
-
-                // Update date
-                const dateDisplay = document.querySelector('.date-display');
-                dateDisplay.textContent = now.toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: '2-digit',
-                    year: 'numeric'
-                });
-            }
-
-            // Update immediately and then every second
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const sidebar = document.querySelector('.sidebar');
-            const content = document.querySelector('.content');
-            const body = document.body;
-
-            // Create overlay element
-            const overlay = document.createElement('div');
-            overlay.className = 'sidebar-overlay';
-            body.appendChild(overlay);
-
-            function toggleMenu() {
-                mobileMenuBtn.classList.toggle('active');
-                sidebar.classList.toggle('active');
-                content.classList.toggle('sidebar-active');
-                overlay.classList.toggle('active');
-                body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-            }
-
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking a nav item on mobile
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            // Handle resize events
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    if (window.innerWidth > 768) {
-                        mobileMenuBtn.classList.remove('active');
-                        sidebar.classList.remove('active');
-                        content.classList.remove('sidebar-active');
-                        overlay.classList.remove('active');
-                        body.style.overflow = '';
-                    }
-                }, 250);
-            });
-
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            const userElements = document.querySelectorAll('.users-table tr:not(:first-child), .mobile-card');
-
-            searchInput.addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
-                
-                userElements.forEach(element => {
-                    const isTableRow = element.tagName === 'TR';
-                    const name = isTableRow 
-                        ? element.querySelector('.user-name').textContent.toLowerCase()
-                        : element.querySelector('.mobile-card-info .user-name').textContent.toLowerCase();
-                    const email = isTableRow
-                        ? element.children[1].textContent.toLowerCase()
-                        : element.querySelector('.mobile-card-info div:nth-child(2)').textContent.toLowerCase();
-                    const phone = isTableRow
-                        ? element.children[2].textContent.toLowerCase()
-                        : element.querySelector('.mobile-card-info div:nth-child(3)').textContent.toLowerCase();
-                    
-                    if (name.includes(searchTerm) || 
-                        email.includes(searchTerm) || 
-                        phone.includes(searchTerm)) {
-                        element.style.display = '';
-                    } else {
-                        element.style.display = 'none';
-                    }
-                });
-            });
-
-            // Remove success/error messages after 3 seconds
-            setTimeout(function() {
-                const messages = document.querySelectorAll('.success-message, .error-message');
-                messages.forEach(function(message) {
-                    message.style.display = 'none';
-                });
-            }, 3000);
-        });
-
-        let currentUserId = null;
-        let userToDelete = null;
-
-        function editUser(userId) {
-            currentUserId = userId;
-            document.getElementById('editUserId').value = userId;
-            document.getElementById('editUserModal').style.display = 'block';
-        }
-
-        function closeEditModal() {
-            document.getElementById('editUserModal').style.display = 'none';
-            currentUserId = null;
-        }
-
-        // Handle form submission
-        document.getElementById('editUserForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-
-            fetch('update_user.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showNotification('success', 'User updated successfully');
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1500);
-                } else {
-                    showNotification('error', data.message || 'Error updating user');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showNotification('error', 'Error updating user');
-            })
-            .finally(() => {
-                closeEditModal();
-            });
-        });
-
-        function showNotification(type, message) {
-            const container = document.getElementById('notificationContainer');
-            const notification = document.createElement('div');
-            
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <div class="notification-icon">${type === 'success' ? '✅' : '❌'}</div>
-                <div class="notification-text">${message}</div>
-                <div class="notification-close">×</div>
-            `;
-            
-            container.appendChild(notification);
-            
-            notification.offsetHeight;
-            notification.classList.add('show');
-            
-            notification.querySelector('.notification-close').addEventListener('click', () => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    container.removeChild(notification);
-                }, 400);
-            });
-            
-            setTimeout(() => {
-                if (container.contains(notification)) {
-                    notification.classList.remove('show');
-                    setTimeout(() => {
-                        if (container.contains(notification)) {
-                            container.removeChild(notification);
-                        }
-                    }, 400);
-                }
-            }, 3000);
-        }
-
-        function deleteUser(userId) {
-            userToDelete = userId;
-            document.getElementById('deleteConfirmModal').style.display = 'block';
-        }
-
-        function closeDeleteModal() {
-            document.getElementById('deleteConfirmModal').style.display = 'none';
-            userToDelete = null;
-        }
-
-        function confirmDelete() {
-            if (userToDelete !== null) {
-                window.location.href = `user-management.php?delete=${userToDelete}`;
-            }
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('editUserModal');
-            if (event.target == modal) {
-                closeEditModal();
-            }
-            if (event.target == document.getElementById('deleteConfirmModal')) {
-                closeDeleteModal();
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeDeleteModal();
-            }
-        });
-    </script>
+    <script src="./js/user-management.js"></script>
 </body>
 
 </html>
