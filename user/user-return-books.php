@@ -3,7 +3,7 @@ session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ./index.php');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -153,7 +153,7 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
                                     echo "<div class='table-cell'>" . date('d-m-Y h:i A', strtotime($book['borrow_date'])) . "</div>";
                                     echo "<div class='table-cell'>";
                                     echo "<button class='return-btn' onclick='openReturnConfirm({$book['book_id']})'>";
-                                    echo "<img src='../images/redo 1.png' alt='Return' class='return-icon'>";
+                                    echo "<img src='../images/redo-1.png' alt='Return' class='return-icon'>";
                                     echo "<span>Return</span>";
                                     echo "</button>";
                                     echo "</div>";
@@ -190,8 +190,8 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
             <div class="profile-picture-container">
                 <?php
                 $modalProfilePicture = isset($_SESSION['profile_picture']) && $_SESSION['profile_picture'] !== 'default.jpg' 
-                    ? 'uploads/profile_pictures/' . $_SESSION['profile_picture'] 
-                    : 'images/user.png';
+                    ? '../uploads/profile_pictures/' . $_SESSION['profile_picture'] 
+                    : '../images/user.png';
                 ?>
                 <img src="<?php echo htmlspecialchars($modalProfilePicture); ?>" alt="Profile Picture" class="profile-picture">
                 <div class="profile-picture-actions">
@@ -288,8 +288,8 @@ $userFullName = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
             }
         });
 
-        function loadBooks(type) {
-            fetch(`get-books.php?type=${type}&user_id=<?php echo $user_id; ?>`)
+         function loadBooks(type) {
+            fetch(`handlers/get-books.php?type=${type}&user_id=<?php echo $user_id; ?>`)
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('table-content').innerHTML = html;

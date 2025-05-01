@@ -1,7 +1,7 @@
 <?php
 session_start();
 require '../database/db_connection.php';
-require_once 'email_service.php';
+require_once './email_service.php';
 
 $message = '';
 $messageClass = '';
